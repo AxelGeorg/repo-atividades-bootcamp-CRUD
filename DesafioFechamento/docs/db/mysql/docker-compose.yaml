@@ -1,0 +1,14 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysqlDF
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
